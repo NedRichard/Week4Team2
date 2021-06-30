@@ -1,16 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
     public Transform target;
+
+    public float cameraSpeed = 1f;
+
+    public float maxSpeed = 0.1f;
+
+    Vector3 velocity = Vector3.zero;
+
+    public Vector3 offset;
     void LateUpdate()
     {
-        if(target.position.y > transform.position.y) {
+        Vector3 aimPos = target.position + offset;
+        //Vector3 smoothPos = Vector3.Lerp(transform.position, aimPos, cameraSpeed * Time.deltaTime);
 
-            Vector3 newPos = new Vector3(target.position.x, target.position.y, target.position.z);
-            transform.position = newPos;
-        }
+        Vector3 smoothPos = Vector3.SmoothDamp(transform.position, aimPos, ref velocity, cameraSpeed * Time.deltaTime, maxSpeed);
+
+        transform.position = smoothPos;
+
+        //transform.LookAt(target, target.up);
+
     }
 }
