@@ -14,17 +14,28 @@ public class Platform : MonoBehaviour
 
     Vector3 velo = Vector3.zero;
 
+    bool movePlatform = false;
+
     void Awake() {
         platformBody = GetComponent<Rigidbody>();
     }
 
     void OnCollisionEnter(Collision col) {
+
         Rigidbody body = col.gameObject.GetComponent<Rigidbody>();
 
-        AddBounceVelocity(body);
+        //Using velocity
+        //AddBounceVelocity(body);
 
-        RemovePlatform(platformBody);
-        
+        //Using force
+        AddBounceForce(body);
+
+        //Using 
+        movePlatform = true;
+
+        //Moved to Update
+        //RemovePlatform(platformBody);
+
     }
 
     void RemovePlatform(Rigidbody platform) {
@@ -37,7 +48,7 @@ public class Platform : MonoBehaviour
             //platform.AddForce(remove);
 
             //Moves to position instantly
-            platform.MovePosition(transform.position + (remove * platformSpeed * Time.deltaTime));
+            //platform.MovePosition(transform.position + (remove * platformSpeed * Time.deltaTime));
 
             //Vector3 removePos = transform.position + offset;
 
@@ -58,11 +69,33 @@ public class Platform : MonoBehaviour
         
     }
 
-    void AddBounceForce() {
+    void AddBounceForce(Rigidbody player) {
+
+        if( player != null) {
+
+            Vector3 bounce = new Vector3(0, bounceForce * 50, 0);
+
+            player.AddForce(bounce);
+
+        }
 
     }
 
-    void LateUpdate() {
+    void FixedUpdate() {
+
+        //platformBody = GetComponent<Rigidbody>();
+
+        if(movePlatform) {
+
+            Debug.Log("Platform is moving!");
+
+            Vector3 remove = new Vector3(0, 0, 5);
+            //platformBody.MovePosition(transform.position + (remove * platformSpeed * Time.deltaTime));
+
+            Vector3 removePos = transform.position + offset;
+
+            Vector3 finalPos = Vector3.SmoothDamp(transform.position, removePos, ref velo, platformSpeed * Time.fixedDeltaTime);
+        }
         
     }
 }
