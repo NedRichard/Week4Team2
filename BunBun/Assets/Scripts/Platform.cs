@@ -89,7 +89,7 @@ public class Platform : MonoBehaviour
 
         Vector3 removePos = transform.position + offset;
 
-        Vector3 finalPos = Vector3.SmoothDamp(transform.position, removePos, ref velo, platformSpeed * Time.fixedDeltaTime);
+        //Vector3 finalPos = Vector3.SmoothDamp(transform.position, removePos, ref velo, platformSpeed * Time.fixedDeltaTime);
     }
 
     void FixedUpdate() {
