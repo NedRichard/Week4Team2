@@ -23,7 +23,7 @@ public class Platform : MonoBehaviour
 
         AddBounceVelocity(body);
 
-        //RemovePlatform(platformBody);
+        RemovePlatform(platformBody);
         
     }
 
@@ -31,17 +31,17 @@ public class Platform : MonoBehaviour
 
         if(platform != null) {
 
-            //Vector3 remove = new Vector3(0, 0, 5);
+            Vector3 remove = new Vector3(0, 0, 5);
 
             //Moves platform but cannot be stopped
             //platform.AddForce(remove);
 
             //Moves to position instantly
-            //platform.MovePosition(transform.position + (remove * platformSpeed * Time.deltaTime));
+            platform.MovePosition(transform.position + (remove * platformSpeed * Time.deltaTime));
 
-            Vector3 removePos = transform.position + offset;
+            //Vector3 removePos = transform.position + offset;
 
-            Vector3 finalPos = Vector3.SmoothDamp(transform.position, removePos, ref velo, platformSpeed * Time.deltaTime);
+            //Vector3 finalPos = Vector3.SmoothDamp(transform.position, removePos, ref velo, platformSpeed * Time.deltaTime);
             
         }
     }
