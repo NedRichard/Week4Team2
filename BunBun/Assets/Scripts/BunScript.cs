@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CounterScript : MonoBehaviour
+public class BunScript : MonoBehaviour
 {
     void OnTriggerEnter(Collider other) {
 
         if(other.tag == "Player") {
-            SceneControl.GoToGameView();
+            Debug.Log("Reached goal!");
+            //SceneControl.GoToVictoryScene();
         }
-        
+
     }
 }
