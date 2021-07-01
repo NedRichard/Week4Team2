@@ -319,6 +319,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3683117457158864236, guid: c030a3ae815eb684fbb05606c7ae5242, type: 3}
+      propertyPath: bounceForce
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 3683117457158864242, guid: c030a3ae815eb684fbb05606c7ae5242, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -376,6 +380,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3683117457158864236, guid: c030a3ae815eb684fbb05606c7ae5242, type: 3}
+      propertyPath: bounceForce
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 3683117457158864242, guid: c030a3ae815eb684fbb05606c7ae5242, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -479,7 +487,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3871307876296018625, guid: 71eb00ac254d0fc4eb981e2477d42b85, type: 3}
       propertyPath: moveSpeed
-      value: 10
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 3871307876296018628, guid: 71eb00ac254d0fc4eb981e2477d42b85, type: 3}
       propertyPath: m_Name

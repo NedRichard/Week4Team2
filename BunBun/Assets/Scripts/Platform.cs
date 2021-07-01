@@ -81,6 +81,17 @@ public class Platform : MonoBehaviour
 
     }
 
+    void MovePlatform() {
+
+        Vector3 remove = new Vector3(0, 0, 5);
+
+        //platformBody.MovePosition(transform.position + (remove * platformSpeed * Time.deltaTime));
+
+        Vector3 removePos = transform.position + offset;
+
+        Vector3 finalPos = Vector3.SmoothDamp(transform.position, removePos, ref velo, platformSpeed * Time.fixedDeltaTime);
+    }
+
     void FixedUpdate() {
 
         //platformBody = GetComponent<Rigidbody>();
@@ -89,12 +100,7 @@ public class Platform : MonoBehaviour
 
             Debug.Log("Platform is moving!");
 
-            Vector3 remove = new Vector3(0, 0, 5);
-            //platformBody.MovePosition(transform.position + (remove * platformSpeed * Time.deltaTime));
-
-            Vector3 removePos = transform.position + offset;
-
-            Vector3 finalPos = Vector3.SmoothDamp(transform.position, removePos, ref velo, platformSpeed * Time.fixedDeltaTime);
+            MovePlatform();
         }
         
     }
