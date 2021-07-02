@@ -17,13 +17,15 @@ public class PlayerMovement : MonoBehaviour
 
     void Update() {
         //movementX = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
-        forceM = new Vector3(Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed, 0, 0);
+        //forceM = new Vector3(Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed, 0, 0);
     }
     
     void FixedUpdate()
     {
         //Move();
-        AddForceMovement(forceM);
+        forceM = new Vector3(Input.GetAxis("Horizontal") * Time.fixedDeltaTime * moveSpeed, 0, 0);
+        //AddForceMovement(forceM);
+        playerBody.AddForce(forceM);
     }
 
     void AddForceMovement(Vector3 direction) {
