@@ -8,6 +8,8 @@ public class Platform : MonoBehaviour
 
     Rigidbody platformBody;
 
+    public AudioSource bounceSound;
+
     public float platformSpeed = 10f;
 
     Vector3 offset = new Vector3(0, 0, 5);
@@ -29,6 +31,8 @@ public class Platform : MonoBehaviour
 
         //Using force
         AddBounceForce(body);
+        PlaySoundEffect();
+
 
         //Using 
         //movePlatform = true;
@@ -38,36 +42,11 @@ public class Platform : MonoBehaviour
 
     }
 
-    void RemovePlatform(Rigidbody platform) {
-
-        if(platform != null) {
-
-            Vector3 remove = new Vector3(0, 0, 5);
-
-            //Moves platform but cannot be stopped
-            //platform.AddForce(remove);
-
-            //Moves to position instantly
-            //platform.MovePosition(transform.position + (remove * platformSpeed * Time.deltaTime));
-
-            //Vector3 removePos = transform.position + offset;
-
-            //Vector3 finalPos = Vector3.SmoothDamp(transform.position, removePos, ref velo, platformSpeed * Time.deltaTime);
-            
-        }
+    void PlaySoundEffect() {
+        bounceSound.Play();
     }
 
-    void AddBounceVelocity(Rigidbody body) {
-
-        if(body != null) {
-
-            Vector3 velo = body.velocity;
-            velo.y = bounceForce;
-            body.velocity = velo;
-            
-        }
-        
-    }
+    
 
     void AddBounceForce(Rigidbody player) {
 
@@ -104,4 +83,36 @@ public class Platform : MonoBehaviour
         }
         
     }
+
+    void RemovePlatform(Rigidbody platform) {
+
+        if(platform != null) {
+
+            Vector3 remove = new Vector3(0, 0, 5);
+
+            //Moves platform but cannot be stopped
+            //platform.AddForce(remove);
+
+            //Moves to position instantly
+            //platform.MovePosition(transform.position + (remove * platformSpeed * Time.deltaTime));
+
+            //Vector3 removePos = transform.position + offset;
+
+            //Vector3 finalPos = Vector3.SmoothDamp(transform.position, removePos, ref velo, platformSpeed * Time.deltaTime);
+            
+        }
+    }
+
+    void AddBounceVelocity(Rigidbody body) {
+
+        if(body != null) {
+
+            Vector3 velo = body.velocity;
+            velo.y = bounceForce;
+            body.velocity = velo;
+            
+        }
+        
+    }
+
 }
