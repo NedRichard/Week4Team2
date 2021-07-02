@@ -31,7 +31,7 @@ public class Platform : MonoBehaviour
         AddBounceForce(body);
 
         //Using 
-        movePlatform = true;
+        //movePlatform = true;
 
         //Moved to Update
         //RemovePlatform(platformBody);
@@ -98,7 +98,7 @@ public class Platform : MonoBehaviour
 
         if(movePlatform) {
 
-            Debug.Log("Platform is moving!");
+            //Debug.Log("Platform is moving!");
 
             MovePlatform();
         }

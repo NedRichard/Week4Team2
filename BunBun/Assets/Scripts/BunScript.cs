@@ -7,8 +7,8 @@ public class BunScript : MonoBehaviour
     void OnTriggerEnter(Collider other) {
 
         if(other.tag == "Player") {
-            Debug.Log("Reached goal!");
-            //SceneControl.GoToVictoryScene();
+            //Debug.Log("Reached goal!");
+            SceneControl.GoToVictoryScene();
         }
 
     }
